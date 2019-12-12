@@ -1,4 +1,13 @@
 ./idea
-.idea
+.idea/
 ../production/
-**gradle**
+gradle/
+
+# build artifacts
+bin/
+build/
+.gradle/
+pom.xml
+target/
+git.properties
+out/

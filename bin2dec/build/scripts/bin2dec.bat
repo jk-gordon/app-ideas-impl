@@ -1,3 +1,19 @@
+@rem
+@rem Copyright 2015 the original author or authors.
+@rem
+@rem Licensed under the Apache License, Version 2.0 (the "License");
+@rem you may not use this file except in compliance with the License.
+@rem You may obtain a copy of the License at
+@rem
+@rem      https://www.apache.org/licenses/LICENSE-2.0
+@rem
+@rem Unless required by applicable law or agreed to in writing, software
+@rem distributed under the License is distributed on an "AS IS" BASIS,
+@rem WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+@rem See the License for the specific language governing permissions and
+@rem limitations under the License.
+@rem
+
 @if "%DEBUG%" == "" @echo off
 @rem ##########################################################################
 @rem
@@ -49,7 +65,6 @@ goto fail
 @rem Get command-line arguments, handling Windows variants
 
 if not "%OS%" == "Windows_NT" goto win9xME_args
-if "%@eval[2+2]" == "4" goto 4NT_args
 
 :win9xME_args
 @rem Slurp the command line arguments.
@@ -60,19 +75,14 @@ set _SKIP=2
 if "x%~1" == "x" goto execute
 
 set CMD_LINE_ARGS=%*
-goto execute
-
-:4NT_args
-@rem Get arguments from the 4NT Shell from JP Software
-set CMD_LINE_ARGS=%$
 
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\gs-gradle-0.1.0.jar
+set CLASSPATH=%APP_HOME%\lib\gs-gradle-0.1.0.jar;%APP_HOME%\lib\groovy-all-2.4.13.jar;%APP_HOME%\lib\spring-boot-starter-web-2.0.5.RELEASE.jar;%APP_HOME%\lib\spring-boot-starter-json-2.0.5.RELEASE.jar;%APP_HOME%\lib\spring-boot-starter-2.0.5.RELEASE.jar;%APP_HOME%\lib\spring-boot-starter-tomcat-2.0.5.RELEASE.jar;%APP_HOME%\lib\hibernate-validator-6.0.12.Final.jar;%APP_HOME%\lib\spring-webmvc-5.0.9.RELEASE.jar;%APP_HOME%\lib\spring-web-5.0.9.RELEASE.jar;%APP_HOME%\lib\spring-boot-autoconfigure-2.0.5.RELEASE.jar;%APP_HOME%\lib\spring-boot-2.0.5.RELEASE.jar;%APP_HOME%\lib\spring-boot-starter-logging-2.0.5.RELEASE.jar;%APP_HOME%\lib\javax.annotation-api-1.3.2.jar;%APP_HOME%\lib\spring-context-5.0.9.RELEASE.jar;%APP_HOME%\lib\spring-aop-5.0.9.RELEASE.jar;%APP_HOME%\lib\spring-beans-5.0.9.RELEASE.jar;%APP_HOME%\lib\spring-expression-5.0.9.RELEASE.jar;%APP_HOME%\lib\spring-core-5.0.9.RELEASE.jar;%APP_HOME%\lib\snakeyaml-1.19.jar;%APP_HOME%\lib\jackson-datatype-jdk8-2.9.6.jar;%APP_HOME%\lib\jackson-datatype-jsr310-2.9.6.jar;%APP_HOME%\lib\jackson-module-parameter-names-2.9.6.jar;%APP_HOME%\lib\jackson-databind-2.9.6.jar;%APP_HOME%\lib\tomcat-embed-websocket-8.5.34.jar;%APP_HOME%\lib\tomcat-embed-core-8.5.34.jar;%APP_HOME%\lib\tomcat-embed-el-8.5.34.jar;%APP_HOME%\lib\validation-api-2.0.1.Final.jar;%APP_HOME%\lib\jboss-logging-3.3.2.Final.jar;%APP_HOME%\lib\classmate-1.3.4.jar;%APP_HOME%\lib\logback-classic-1.2.3.jar;%APP_HOME%\lib\log4j-to-slf4j-2.10.0.jar;%APP_HOME%\lib\jul-to-slf4j-1.7.25.jar;%APP_HOME%\lib\spring-jcl-5.0.9.RELEASE.jar;%APP_HOME%\lib\jackson-annotations-2.9.0.jar;%APP_HOME%\lib\jackson-core-2.9.6.jar;%APP_HOME%\lib\logback-core-1.2.3.jar;%APP_HOME%\lib\slf4j-api-1.7.25.jar;%APP_HOME%\lib\log4j-api-2.10.0.jar
 
 @rem Execute bin2dec
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %BIN2DEC_OPTS%  -classpath "%CLASSPATH%" bin2dec.Bin2Dec %CMD_LINE_ARGS%
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %BIN2DEC_OPTS%  -classpath "%CLASSPATH%" bin2dec.App %CMD_LINE_ARGS%
 
 :end
 @rem End local scope for the variables with windows NT shell
