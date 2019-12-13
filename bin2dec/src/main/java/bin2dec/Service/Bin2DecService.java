@@ -2,36 +2,14 @@ package bin2dec.Service;
 
 import org.springframework.stereotype.Component;
 
-import java.util.Scanner;
-
 @Component
 public class Bin2DecService {
 
 	private static final String ONE = "1";
 	private static final String ZERO = "0";
 
-	static Scanner scanner = new Scanner(System.in);
-	private static String input;
-
-
-	public  String getInput() {
-
-		String input = getInput();
-
-		if (validateInput(input)) {
-			translateBinary(input);
-		}
-
-		System.out.println("Enter number to translate");
-		input = scanner.nextLine();
-
-		return input;
-
-	}
-
 	public  boolean validateInput(String input) {
 		return input.contains(ONE) && input.contains(ZERO);
-
 	}
 
 	public Integer translateBinary(String input) {

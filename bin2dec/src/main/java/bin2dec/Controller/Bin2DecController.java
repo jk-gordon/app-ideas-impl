@@ -2,6 +2,8 @@ package bin2dec.Controller;
 
 import bin2dec.Service.Bin2DecService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,14 +16,11 @@ public class Bin2DecController {
 		this.bin2DecServiceService = bin2DecServiceService;
 	}
 
-	public void translate () {
+	@RequestMapping("/")
+	public Integer translate(@RequestParam String input) {
 
-		String input = bin2DecServiceService.getInput();
+		// TODO add validation back in
 
-		bin2DecServiceService.validateInput(input);
-
-		bin2DecServiceService.translateBinary(input);
-
-
+		return bin2DecServiceService.translateBinary(input);
 	}
 }

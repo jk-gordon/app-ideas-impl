@@ -11,8 +11,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'groovy'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'org.springframework.boot'
 
@@ -34,14 +32,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
     testCompile 'org.spockframework:spock-spring:1.1-groovy-2.4'
-    testCompile('com.athaydes:spock-reports:1.4.0') {
-        transitive = false // this avoids affecting your version of Groovy/Spock
-    }
 
     testCompile "org.springframework.boot:spring-boot-starter-test"
-
-    testCompile 'org.slf4j:slf4j-api:1.7.13'
-    testCompile 'org.slf4j:slf4j-simple:1.7.13'
 }
 
 test {
@@ -50,9 +42,10 @@ test {
     }
 }
 
-jar {
-    baseName = 'gs-gradle'
+bootJar {
+    baseName = 'gs-spring-boot'
     version =  '0.1.0'
 }
+
 
 

@@ -1,6 +1,7 @@
 import bin2dec.Service.Bin2DecService
 import spock.lang.Specification
 import spock.lang.Subject
+import spock.lang.Unroll
 
 class Bin2DecServiceSpec extends Specification{
 
@@ -12,16 +13,24 @@ class Bin2DecServiceSpec extends Specification{
     }
 
 
+    @Unroll
     def 'Given a valid binary input a decimal is returned' () {
 
         given: "a valid binary input"
-        def binaryInput = "1110"
+        def binaryInput = input
 
         when: "translateBinary is called"
         def result = bin2DecService.translateBinary(binaryInput)
 
         then: "a decimal is returned"
-        result == 14
+        result == expectedResult
+
+        where:
+        input  | expectedResult
+        "1110" | 14
+        "1111" | 15
+        "001"  | 1
+        "111"  | 7
 
     }
 }
