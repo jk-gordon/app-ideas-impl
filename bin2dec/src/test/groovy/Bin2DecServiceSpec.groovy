@@ -13,7 +13,7 @@ class Bin2DecServiceSpec extends Specification{
     }
 
 
-    @Unroll
+   @Unroll
     def 'Given a valid binary input a decimal is returned' () {
 
         given: "a valid binary input"
