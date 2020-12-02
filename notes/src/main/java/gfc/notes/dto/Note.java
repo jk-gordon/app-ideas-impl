@@ -1,11 +1,9 @@
 package gfc.notes.dto;
 
-import lombok.Data;
 import lombok.Generated;
 
 import javax.persistence.Id;
 
-@Data
 public class Note {
 
 	@Id @Generated
